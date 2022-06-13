@@ -33,14 +33,14 @@ export class Server {
       server = app;
     }
 
-    app.post('/', (req: Request, res: Response) => {
+    app.post('/whoami', (req: Request, res: Response) => {
       this.logger.log(`whoami ativado`);
       const body = req.body as JsonRequest.Request;
       res.json(this.extract("eu so legal!"));
       res.status(200);
     });
 
-    app.get('/html', (req: Request, res: Response) => {
+    app.get('/', (req: Request, res: Response) => {
       res.setHeader("Content-Type", "text/html");
       res.send("<h1>ME</h1>");
       res.status(200);
